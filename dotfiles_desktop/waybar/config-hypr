@@ -1,0 +1,140 @@
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+    "position": "top",
+    "margin-left": 4,
+    "margin-bottom": 0,
+    "margin-right": 4,
+    "margin-top": 4,
+    "spacing": 0,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/media"
+    ],
+
+    "modules-center": [
+        "clock#date"
+    ],
+    
+    "modules-right": [
+        "memory",
+        "custom/gpu",
+        "custom/cpu",
+        "network",
+        "wireplumber",
+        "custom/power"
+    ],
+
+    // -------------------------------------------------------------------------
+    // Coustom Modules
+    // ------------------------------------------------------------------------- 
+
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{name}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+        "sort-by-number": true,
+        "active-only": false,
+    },
+
+    "custom/media": {
+        "format": "<span foreground='#b7bdf8'>{icon}</span>  {}",
+        "return-type": "json",
+        "max-length": 30,
+        "format-icons": {
+           "spotify": "",
+           "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+
+    "clock#date": {
+        "format":"<span foreground='#b7bdf8'></span> {:%H:%M  <span foreground='#b7bdf8'></span>  %e %b}",
+        //"format": "❤️  {:%H:%M   %e %b}", // Icon: calendar-alt
+        //"format": "{:%I:%M %p  %A %b %d}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar":{
+		    "mode"          : "month",
+		    "format": {
+			    "months":     "<span color='#fff'><b>{}</b></span>",
+			    "days":       "<span color='#fff'><b>{}</b></span>",
+			    "weekdays":   "<span color='#b7bdf8'><b>{}</b></span>",
+			    "today":      "<span color='#b7bdf8'><b><u>{}</u></b></span>"
+		    }
+	    }
+    },
+
+    "custom/gpu": {
+        "format": "{}",
+        "exec": "~/.config/waybar/modules/gpu.sh",
+        "interval": 4,
+        "tooltip": false
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "<span foreground='#b7bdf8'>RAM:</span> {used:0.1f} GB [ {total:0.1f} GB ]",
+        "tooltip": false
+    },
+
+    "custom/cpu": {
+        "format": "{}",
+        "exec": "~/.config/waybar/modules/cpu.sh",
+        "interval": 4,
+        "tooltip": false
+    },
+
+    "network": {
+        "format": "{ifname}",
+        "format-ethernet": "<span foreground='#b7bdf8'></span>",
+        "format-disconnected": "<span foreground='#ff5858'></span>", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-ethernet": "IP {ipaddr} / {cidr} \n\n {bandwidthDownBits}\n {bandwidthUpBits}",
+        "tooltip-format-disconnected": "Disconnected",
+    },
+
+    "wireplumber": {
+        "on-click": "pavucontrol",
+        "on-click-right": "amixer sset Master toggle 1>/dev/null",
+        "format": "<span foreground='#b7bdf8'>{icon}</span> {volume}%",
+        "format-muted": "<span foreground='#b7bdf8'></span>",
+        "format-source": "<span foreground='#b7bdf8'></span>",
+        "format-source-muted": "<span foreground='#b7bdf8'></span>",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
+        },
+        "tooltip": false
+    },
+
+    "custom/power": {
+        "format": "<span foreground='#b7bdf8'></span>",
+        "tooltip": false,
+        "on-click": "wlogout"
+    }
+
+}
