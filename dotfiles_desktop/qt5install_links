@@ -1,0 +1,11 @@
+hypr configs
+
+https://raw.githubusercontent.com/NevetsCoding/hyperdots/main/dotfiles_desktop/hypr/hyprland.conf, https://raw.githubusercontent.com/NevetsCoding/hyperdots/main/dotfiles_desktop/hypr/settings.conf, https://raw.githubusercontent.com/NevetsCoding/hyperdots/main/dotfiles_desktop/hypr/style.conf, https://raw.githubusercontent.com/NevetsCoding/hyperdots/main/dotfiles_desktop/hypr/controls.conf
+
+waybar modules
+
+https://raw.githubusercontent.com/NevetsCoding/hyperdots/main/dotfiles_desktop/waybar/modules/cpu.sh, https://raw.githubusercontent.com/NevetsCoding/hyperdots/main/dotfiles_desktop/waybar/modules/gpu.sh
+
+waybar styles
+
+https://raw.githubusercontent.com/NevetsCoding/hyperdots/main/dotfiles_desktop/waybar/config-hypr, https://raw.githubusercontent.com/NevetsCoding/hyperdots/main/dotfiles_desktop/waybar/style.css
