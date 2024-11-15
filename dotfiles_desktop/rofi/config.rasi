@@ -1,0 +1,132 @@
+configuration{
+    modi: "run,drun,window";
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "  Apps ";
+    display-run: "  Run ";
+    display-window: "  Window";
+    sidebar-mode: true;
+}
+
+@theme "/dev/null"
+
+* {
+    bg-col:  #101E18CC;
+    bg-col-light: #101E18CC;
+    border-col: #3BC771;
+    selected-col: #3BC771;
+    blue: #3BC771;
+    fg-col: #A8F3D2;
+    fg-col2: #101E18;
+    grey: #A8F3D2;
+
+    width: 540px;
+    font: "JetBrainsMono Nerd Font 14";
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    height: 440px;
+    border: 1px;
+    border-color: @border-col;
+    background-color: @bg-col;
+}
+
+mainbox {
+    background-color: transparent;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+prompt {
+    background-color: #3BC771;
+    padding: 6px;
+    text-color: #101E18;
+    border-radius: 3px;
+    margin: 20px 0px 0px 20px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    margin: 20px 20px 0px 20px;
+    text-color: @fg-col;
+    background-color: transparent;
+    border-color: @border-col;
+    border: 1px;
+    border-radius: 3px;
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+    margin: 12px 22px 0px 22px;
+    columns: 1;
+    lines: 5;
+    background-color: transparent;
+}
+
+element {
+    padding: 5px;
+    background-color: transparent;
+    text-color: @fg-col  ;
+}
+
+element-icon {
+    size: 30px;
+}
+
+element selected {
+    background-color:  @selected-col ;
+    text-color: @fg-col2  ;
+    border-radius: 3px;
+}
+
+mode-switcher {
+    spacing: 0;
+  }
+
+button {
+    padding: 10px;
+    background-color: transparent;
+    text-color: @grey;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: transparent;
+  text-color: @blue;
+}
+
+message {
+    background-color: transparent;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+    padding: 6px;
+    margin: 20px 0px 0px 20px;
+    text-color: @blue;
+    background-color: transparent;
+}

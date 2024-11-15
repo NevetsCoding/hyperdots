@@ -1,0 +1,114 @@
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+    "layer": "top",
+    "position": "top",
+    "margin-left": 4,
+    "margin-bottom": 0,
+    "margin-right": 4,
+    "margin-top": 4,
+    "spacing": 0,
+    "modules-left": [
+        "custom/gpu",
+        "custom/cpu",
+        "memory"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "network",
+        "wireplumber",
+        "clock#date",
+        "custom/power"
+    ],
+    // -------------------------------------------------------------------------
+    // Coustom Modules
+    // ------------------------------------------------------------------------- 
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{name}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十"
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+        "sort-by-number": true,
+        "active-only": false
+    },
+    "clock#date": {
+        "format": "<span foreground='#3BC771'></span> {:%H:%M  <span foreground='#3BC771'></span>  %e %b}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#fff'><b>{}</b></span>",
+                "days": "<span color='#fff'><b>{}</b></span>",
+                "weekdays": "<span color='#3BC771'><b>{}</b></span>",
+                "today": "<span color='#3BC771'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    "custom/gpu": {
+        "format": "{}",
+        "exec": "~/.config/waybar/modules/gpu.sh",
+        "interval": 4,
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 30,
+        "format": "<span foreground='#3BC771'>RAM:</span> {used:0.1f} GB",
+        "tooltip": false
+    },
+    "custom/cpu": {
+        "format": "{}",
+        "exec": "~/.config/waybar/modules/cpu.sh",
+        "interval": 4,
+        "tooltip": false
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-ethernet": "<span foreground='#3BC771'></span>",
+        "format-disconnected": "<span foreground='#ff5858'></span>",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-ethernet": "IP {ipaddr} / {cidr} \n\n {bandwidthDownBits}\n {bandwidthUpBits}",
+        "tooltip-format-disconnected": "Disconnected"
+    },
+    "wireplumber": {
+        "on-click": "pavucontrol",
+        "on-click-right": "amixer sset Master toggle 1>/dev/null",
+        "format": "<span foreground='#3BC771'>{icon}</span> {volume}%",
+        "format-muted": "<span foreground='#3BC771'></span>",
+        "format-source": "<span foreground='#3BC771'></span>",
+        "format-source-muted": "<span foreground='#3BC771'></span>",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [
+                " ",
+                " ",
+                " "
+            ]
+        },
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": "<span foreground='#3BC771'></span>",
+        "tooltip": false,
+        "on-click": "wlogout"
+    }
+}
